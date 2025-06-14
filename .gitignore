@@ -1,0 +1,4 @@
+save/Beauty/DCSM/rqvae-tiger-lr_0.001-wd_0.0001-kmi_10-last.pth
+save/Beauty/DCSM/tiger-dcsm.pth
+data/Beauty/*
+*.pyc

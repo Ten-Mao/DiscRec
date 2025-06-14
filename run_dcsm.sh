@@ -1,0 +1,1 @@
+nohup python -u run_dcsm.py  --device cuda:0 --dataset Beauty --id_type tiger --rqvae_lr 1e-3 --rqvae_wd 1e-4 --rqvae_select_position last --t54rec_lr 5e-4 --t54rec_train_batch_size 256 --kmeans_init_iter 10 --sinkhorn_open > log/Beauty/tiger-dcsm.log 2>&1 &
