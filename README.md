@@ -21,7 +21,7 @@ tqdm==4.67.1
 
 We release the **Beauty** dataset along with the pretrained **DiscRec-T** checkpoint on **Beauty**. Link: 
 
-
+https://drive.google.com/drive/folders/1I7uCqLteAfUIUsmhv2wGIeZtnn_eoxv1?usp=sharing
 
 # Train & Eval
 
