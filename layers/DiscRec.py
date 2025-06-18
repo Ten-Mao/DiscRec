@@ -20,7 +20,7 @@ from layers.MultiHeadAttention import MultiHeadAttention
 from util.util import Trie, get_prefix_allowed_tokens_fn
 
 
-class DCSMAttention(MultiHeadAttention):
+class DiscRecAttention(MultiHeadAttention):
     def __init__(self, d_model, n_heads, dropout=0.1, causal=False, q_mask=False):
         super().__init__(d_model, n_heads, dropout=dropout, causal=causal, q_mask=q_mask)
     
@@ -58,14 +58,14 @@ class DCSMAttention(MultiHeadAttention):
         return out + q
 
 
-class DCSMT5Stack(T5Stack):
+class DiscRecT5Stack(T5Stack):
 
     def __init__(self, config, embed_tokens=None):
         super().__init__(config, embed_tokens)
 
         self.code_embedding = nn.Embedding(6, 128)
         self.collaborate_attn_norm = LayerNorm(128, eps=1e-8)
-        self.collaborate_attention = DCSMAttention(
+        self.collaborate_attention = DiscRecAttention(
             d_model=128, 
             n_heads=2,
             dropout=0.1,
@@ -412,7 +412,7 @@ class DCSMT5Stack(T5Stack):
 
 
 
-class DCSM(T5ForConditionalGeneration):
+class DiscRec(T5ForConditionalGeneration):
 
     def __init__(self, config: T5Config):
         super().__init__(config)
@@ -421,13 +421,13 @@ class DCSM(T5ForConditionalGeneration):
         encoder_config.is_decoder = False
         encoder_config.use_cache = False
         encoder_config.is_encoder_decoder = False
-        self.encoder = DCSMT5Stack(encoder_config, self.shared)
+        self.encoder = DiscRecT5Stack(encoder_config, self.shared)
 
         decoder_config = copy.deepcopy(config)
         decoder_config.is_decoder = True
         decoder_config.is_encoder_decoder = False
         decoder_config.num_layers = config.num_decoder_layers
-        self.decoder = DCSMT5Stack(decoder_config, self.shared)
+        self.decoder = DiscRecT5Stack(decoder_config, self.shared)
 
         self.loss_func = nn.CrossEntropyLoss()
 

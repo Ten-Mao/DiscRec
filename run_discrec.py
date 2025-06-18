@@ -11,7 +11,7 @@ import torch
 from torch import nn
 
 from data.dataset import IDDataset, SeqRecDataset
-from layers.DCSM import DCSM
+from layers.DiscRec import DiscRec
 from transformers.models.t5.configuration_t5 import T5Config
 from layers.Rqvae import RQVAE
 from torch.optim.lr_scheduler import LambdaLR
@@ -20,7 +20,7 @@ from util.evaluate import ndcg_at_k, recall_at_k
 from util.util import ensure_dir, ensure_file
 
 
-MODEL_NAME="DCSM"
+MODEL_NAME="DiscRec"
 
 def parser_args():
     parser = argparse.ArgumentParser(description=MODEL_NAME)
@@ -202,7 +202,7 @@ def initial_model(args, device):
 
     config = T5Config.from_pretrained(args.t54rec_config_dir_path)
     config.vocab_size = 256 * 4 + 2
-    t54rec = DCSM(config).to(device)
+    t54rec = DiscRec(config).to(device)
 
     return rqvae, t54rec
 
@@ -613,7 +613,7 @@ def run():
     time_now = time.strftime("%Y_%m_%d_%H_%M", time.localtime())
     args.time = time_now
     save_dir_path = os.path.join(args.save_root_path, args.dataset, MODEL_NAME)
-    save_file_path = os.path.join(save_dir_path, f"{args.id_type}-dcsm.pth")
+    save_file_path = os.path.join(save_dir_path, f"{args.id_type}-DiscRec.pth")
 
     ensure_dir(save_dir_path)
 

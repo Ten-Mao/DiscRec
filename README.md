@@ -1,8 +1,8 @@
-# DCSM
+# DiscRec
 
 This is the pytorch implementation of our paper:
 
-> Generative Recommender with Disentangled Collaborative-Semantic Modeling
+> DiscRec: Disentangled Semantic–Collaborative Modeling for Generative Recommendation
 
 # Requirements
 
@@ -19,15 +19,15 @@ tqdm==4.67.1
 
 # Data
 
-We release the **Beauty** dataset along with the pretrained **DCSM-T** checkpoint on **Beauty**. Link: https://drive.google.com/drive/folders/1I7uCqLteAfUIUsmhv2wGIeZtnn_eoxv1?usp=sharing
+We release the **Beauty** dataset along with the pretrained **DiscRec-T** checkpoint on **Beauty**. Link: 
 
 
 
 # Train & Eval
 
-To train **DCSM** on **Beauty**, simply run:
+To train **DiscRec** on **Beauty**, simply run:
 
 ```
-bash run_dcsm.sh  
+bash run_discrec.sh  
 ```
 

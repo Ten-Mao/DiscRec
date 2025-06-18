@@ -409,8 +409,8 @@ class RQVAE(nn.Module):
 
     def __init__(
         self,
-        item_emb_path: str="data/Beauty2014/Beauty2014.emb-llama-td.npy",
-        cf_emb_path: str="data/Beauty2014/Beauty2014-cf_emb.pt",
+        item_emb_path: str="data/Beauty/Beauty.emb-llama-td.npy",
+        cf_emb_path: str="data/Beauty/Beauty-cf_emb.pt",
 
         in_dims: List[int]=[4096, 2048, 1024, 512, 256, 128, 64, 32],
         codebook_dim: int=32,
