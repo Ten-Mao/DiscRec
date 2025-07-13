@@ -19,13 +19,13 @@ tqdm==4.67.1
 
 # Data
 
-We release the **Beauty** dataset along with the pretrained **DiscRec-T** checkpoint on **Beauty**. Link: 
+ou can download the corresponding datasets through the following links:
 
-https://drive.google.com/drive/folders/1I7uCqLteAfUIUsmhv2wGIeZtnn_eoxv1?usp=sharing
+https://nijianmo.github.io/amazon/index.html
 
 # Train & Eval
 
-To train **DiscRec** on **Beauty**, simply run:
+To train **DiscRec** on the **Beauty** dataset, simply run the following command after downloading and preprocessing the data according to the steps outlined in our paper:
 
 ```
 bash run_discrec.sh  
