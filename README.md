@@ -19,7 +19,7 @@ tqdm==4.67.1
 
 # Data
 
-ou can download the corresponding datasets through the following links:
+you can download the corresponding datasets through the following links:
 
 https://nijianmo.github.io/amazon/index.html
 
